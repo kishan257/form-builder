@@ -38,8 +38,7 @@ const useStyles = makeStyles()(() => ({
     height: "calc(100vh - 63px);",
     overflowY: "auto",
   },
-}));  
-
+}));
 
 const FormBuilder: FunctionComponent<FormBuilderProps> = (props) => {
 
@@ -63,7 +62,7 @@ const FormBuilder: FunctionComponent<FormBuilderProps> = (props) => {
   const { showPreview, openPreviewDrawer, closePreviewDrawer } =
     useFormPreview();
 
-  const {classes} = useStyles();
+  const { classes } = useStyles();
 
   const navigate = useNavigate();
 

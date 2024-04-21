@@ -1,15 +1,5 @@
-import React, { FunctionComponent } from "react";
-import {
-  isMobile as libIsMobile,
-  isTablet as libIsTablet
-} from "react-device-detect";
-let isMobile:Boolean;
-if (process.env.NODE_ENV === "localhost") {
-  isMobile = window.innerWidth < 1024;
-} else {
-   // @typescript-eslint/no-unused-vars
-  isMobile = libIsMobile || libIsTablet || window.innerWidth < 1024; 
-};
+import { FunctionComponent } from "react";
+
 interface NavbarProps {
   window?: ()=>Window
 }
