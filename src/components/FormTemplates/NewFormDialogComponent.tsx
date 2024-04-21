@@ -1,6 +1,6 @@
-import React, { ChangeEventHandler, FormEventHandler, FunctionComponent, useEffect, useState } from 'react';
+import { ChangeEventHandler, FormEventHandler, FunctionComponent, useState } from 'react';
 import { Dialog, DialogContent, DialogTitle, TextField } from "@mui/material";
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useAppDispatch } from '../../redux/hooks';
 import { addTemplate } from '../../redux/entities/formBuilderEntity';
 import { useNavigate } from 'react-router-dom';
 import useModalStrip from '../../global-hooks/useModalStrip';

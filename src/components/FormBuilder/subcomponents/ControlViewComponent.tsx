@@ -11,7 +11,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
 const selectedColor= 'var(--primary)';
 const nonSelectedColor= 'rgba(0,0,0,0.1)';
-const dateFormat = 'yyyy, MMM dd';
+// const dateFormat = 'yyyy, MMM dd';
 
 const renderItem = (item: FormLayoutComponentChildrenType)=>{
   switch(item.controlName){
@@ -140,17 +140,17 @@ const renderItem = (item: FormLayoutComponentChildrenType)=>{
           </label>
         </>
 
-      case FormControlNames.SCANCODE:
-        return <>
-          <input
-          style={{ display: 'none' }}
-          id={item.controlName+item.id}
-          type="file"
-          />
-          <label className='control-input-trigger-buttons' htmlFor={item.controlName+item.id}>
-            <i className="fas fa-qrcode"></i>
-          </label>
-        </>
+      // case FormControlNames.SCANCODE:
+      //   return <>
+      //     <input
+      //     style={{ display: 'none' }}
+      //     id={item.controlName+item.id}
+      //     type="file"
+      //     />
+      //     <label className='control-input-trigger-buttons' htmlFor={item.controlName+item.id}>
+      //       <i className="fas fa-qrcode"></i>
+      //     </label>
+      //   </>
 
       case FormControlNames.SIGNATURE:
         return <>
@@ -209,8 +209,8 @@ function ControlViewComponent(props: ControlViewComponentProps) {
   // Check if its the same type and id to change color.
   if(selectedControl && item.id === selectedControl.id && item.type === selectedControl.type){
     wrapperStyle.border = '2px solid '+selectedColor;
-    colBackgroundcolor = selectedColor;
-    color= 'white';
+    colBackgroundcolor = selectedColor;  // @typescript-eslint/no-unused-vars 
+    color= 'white'; // @typescript-eslint/no-unused-vars 
   }
 
   const handleDeleteControl: React.MouseEventHandler<HTMLSpanElement> = (event)=>{
@@ -222,7 +222,7 @@ function ControlViewComponent(props: ControlViewComponentProps) {
   // Drag & Sort Code for functionality  
 
   const ref = useRef<HTMLDivElement>(null);
-  const [{ handlerId }, drop] = useDrop<
+  const [, drop] = useDrop<
     FormLayoutComponentChildrenType,
     void,
     { handlerId: Identifier | null }
@@ -252,10 +252,6 @@ function ControlViewComponent(props: ControlViewComponentProps) {
       const clientOffset = monitor.getClientOffset();
       // Get pixels to the top
       const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-      // Only perform the move when the mouse has crossed half of the items height
-      // When dragging downwards, only move when the cursor is below 50%
-      // When dragging upwards, only move when the cursor is above 50%
-      // Dragging downwards
       if (dragIndex && dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return;
       }
@@ -269,7 +265,7 @@ function ControlViewComponent(props: ControlViewComponentProps) {
     },
   });
 
-  const [{ isDragging }, drag, preview] = useDrag({
+  const [{ isDragging }, drag] = useDrag({
     type: FormItemTypes.CONTROL,
     item: () => {
       return {...item,index}
@@ -304,7 +300,7 @@ function ControlViewComponent(props: ControlViewComponentProps) {
           {renderItem(item)}
         </div>
       </div>
-      {/* <div className='col-1 p-10' style={{cursor: 'grab', backgroundColor: colBackgroundcolor, color}}>
+       <div className='col-1 p-10' style={{cursor: 'grab', backgroundColor: colBackgroundcolor, color}}>
         <div className='m-l-10 m-t-10'><i className='fa fa-ellipsis-v'></i><i className='fa fa-ellipsis-v'></i></div>
       </div>
       <div className='col-11 p-10' style={{position: 'relative'}}>
@@ -317,7 +313,7 @@ function ControlViewComponent(props: ControlViewComponentProps) {
           <span><i className='fa fa-arrow-down'></i></span>
           <span onClick={()=>deleteControl(item.id,containerId)}><i className='fa fa-trash'></i></span>
         </div>
-      </div> */}
+      </div>
     </div>
   </> );
 }

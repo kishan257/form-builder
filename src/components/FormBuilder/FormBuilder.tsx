@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, { FunctionComponent } from "react";
 import { Button } from "@mui/material";
 import { makeStyles } from 'tss-react/mui';
 import { DndProvider } from "react-dnd";
@@ -13,11 +13,9 @@ import LeftSidebar from "./LeftSidebar";
 import useFormBuilder from "./hooks/useFormBuilder";
 import useFormPreview from './hooks/useFormPreview';
 import { Publish, RemoveRedEye } from "@mui/icons-material";
-import { FormContainerList, FormControlList, FormItemTypes } from "../../utils/formBuilderUtils";
+import { FormItemTypes } from "../../utils/formBuilderUtils";
 import FormPreview from './subcomponents/FormPreview';
-import { FormLayoutComponentChildrenType, FormLayoutComponentContainerType, FormLayoutComponentsType, TemplateType } from "../../types/FormTemplateTypes";
-import { generateID } from "../../utils/common";
-import ControlDragComponent from "./subcomponents/ControlDragComponent";
+import { TemplateType } from "../../types/FormTemplateTypes";
 import { useNavigate } from "react-router-dom";
 
 let isMobile: boolean;

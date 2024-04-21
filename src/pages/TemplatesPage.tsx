@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { getAllTemplates } from "../redux/entities/formBuilderEntity";
-import { useNavigate } from "react-router-dom";
 import NewFormDialogComponent from "../components/FormTemplates/NewFormDialogComponent";
 import FormLayoutComponent from "../components/FormTemplates/FormLayoutComponent";
 
@@ -19,19 +18,20 @@ const TemplatesPage: FunctionComponent<TemplatesPageProps> = () => {
     if (templates.length === 0) {
       dispatch(getAllTemplates());
     }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const newFormLayout = {
-    border: "1px dashed",
-    width: "150px",
-    height: "150px",
-    fontSize: "2.7rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    cursor: "pointer",
-    borderRadius: "9px",
-  };
+  // const newFormLayout = {
+  //   border: "1px dashed",
+  //   width: "150px",
+  //   height: "150px",
+  //   fontSize: "2.7rem",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   cursor: "pointer",
+  //   borderRadius: "9px",
+  // };
 
   return (
     <>

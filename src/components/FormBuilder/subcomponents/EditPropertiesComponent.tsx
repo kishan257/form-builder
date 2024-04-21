@@ -101,7 +101,7 @@ const EditPropertiesComponent: FC<EditPropertiesComponentProps> = (props)=> {
   }
 
   const handleCheckChange: React.ChangeEventHandler<HTMLInputElement> = (e)=>{
-    const { name, value } = e.target;
+    const { name } = e.target;
     const key = e.currentTarget.checked;
     if(name === 'required'){
       setIsUpdatedItemRequired(key);

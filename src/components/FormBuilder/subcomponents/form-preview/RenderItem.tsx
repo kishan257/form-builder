@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { FormLayoutComponentChildrenType } from '../../../../types/FormTemplateTypes';
 import { FormControlNames } from '../../../../utils/formBuilderUtils';
 import { Checkbox, FormControl, FormControlLabel, FormGroup, MenuItem, Radio, RadioGroup, Select, Switch, TextField } from '@mui/material';
@@ -7,7 +7,7 @@ import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 
-const dateFormat = 'yyyy, MMM dd';
+// const dateFormat = 'yyyy, MMM dd';
 
 
 interface RenderItemProps{
@@ -136,16 +136,6 @@ const RenderItem: FC<RenderItemProps> = (props)=> {
           <input style={{ display: "none" }} id={item.controlName + item.id} type="file" />
           <label className="control-input-trigger-buttons" htmlFor={item.controlName + item.id}>
             <i className="far fa-image"></i>
-          </label>
-        </>
-      );
-
-    case FormControlNames.SCANCODE:
-      return (
-        <>
-          <input style={{ display: "none" }} id={item.controlName + item.id} type="file" />
-          <label className="control-input-trigger-buttons" htmlFor={item.controlName + item.id}>
-            <i className="fas fa-qrcode"></i>
           </label>
         </>
       );
