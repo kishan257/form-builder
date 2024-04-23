@@ -39,7 +39,8 @@ const FormBuilderPage: FunctionComponent<FormBuilderPageProps> = () => {
       // Setting template to null when unmounting.
       dispatch(setSelectedTemplateNull());
     };
-  }, [dispatch, formId, navigate, showModalStrip]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const defaultForm = {
     id: "0",
